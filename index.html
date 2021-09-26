@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./reset.css"/>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
     <title>Quizzes for Coders</title>
 </head>
+
 <body>
+
+    <nav>
+        <ul>
+            <li>View HighScores</li>
+            <li>Time Left: <span id="countDown"></span> </li>
+        </ul>
+    </nav>
+
     <header>
-        <h1 class="page-title">
+
+        <h1 id="pagetitle">
           Quiz Questions for Coding Challenge
         </h1>
-        <p>
-          As a new developer, you want to test yours skills on some basic principles of coding.  See how many you can answer correctly for the time allowed.  Log you score with your initials and see where you land on the HighScorer page.
+
+        <p id="instructions">
+          As a new developer, you want to test yours skills on some basic principles of coding.  See how many you can answer correctly for the time allowed.  Log you score with your initials and see where you land on the HighScores page.
         </p>
-      </header>
+
+        <div id='start-button'>
+            <button id="pressStart">Start Quiz</button>
+        </div>
+
+    </header>
+
+    <main>
+        <div id="quizTime"></div>
+        <div id="quizResults"></div>
+    </main>
     
-<script src="script.js"></script>
+<script src="./script.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,36 @@
+*  {
+    text-align: center;
+}
+
+ul {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    display: inline;
+}
+
+h1 {
+    font-size: xx-large;
+    padding-top: 50px;
+}
+
+p {
+    display: flex;
+    padding-top: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#start-button {
+    padding: 20px;
+}
+
+main #quizTime {
+    text-align: left;
+    color: blue;
+
+}
