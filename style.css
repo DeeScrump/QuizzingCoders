@@ -34,3 +34,18 @@ main #quizTime {
     color: blue;
 
 }
+
+.question {
+    font: larger;
+    display: block;
+    padding-left: 30%;
+    padding-right: 30%;
+    text-align: start;
+}
+
+.answers {
+    padding-left: 30%;
+    padding-right: 30%;
+    text-align: start;
+    margin-bottom: 20px;
+}
