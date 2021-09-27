@@ -35,15 +35,15 @@ main #quizTime {
 
 }
 
-.question {
-    font: larger;
+#quiz-Container {
+    font: xx-large;
     display: block;
     padding-left: 30%;
     padding-right: 30%;
     text-align: start;
 }
 
-.answers {
+#displayQnA {
     padding-left: 30%;
     padding-right: 30%;
     text-align: start;

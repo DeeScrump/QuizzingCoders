@@ -1,9 +1,10 @@
 var startButtonEl = document.querySelector('#start-button');
-var quizAnswersEl = document.querySelector('#quiz-answers');
 var pageTitleEl = document.querySelector('#pagetitle');
 var instructionEl = document.querySelector('#instructions');
-var quizTimeEl = document.querySelector('#quizTime');
-var quizResultsEl = document.querySelector('#quizResults');
+var quizContainerEl = document.querySelector('#quiz-Container');
+var displayQuizEl = document.querySelector('#displayQnA');
+var resultsPageEl = document.querySelector('#resultsPage');
+
 var quizQuestions = ["Who invented JavaScript?","Which one of these is a JavaScript package manager?","Which tool can you use to ensure code quality?"];
 var quizAnswerChoices = [
   {
@@ -24,7 +25,7 @@ var quizAnswerChoices = [
 ];
 var quizAnswers = ["Brendan Eich","npm","ESLint"];
 var userScore = 0;
-
+var answerChoices = ["a: Douglas Crockford \nb: Sheryl Sandberg \nc: Brendan Eich", "Node.js \nb: TypeScript \nc: npm", "a: Angular \nb: RequireJS \nc: ESLint"];
 
 
 
@@ -33,23 +34,30 @@ function clearScreen(event) {
 pageTitleEl.textContent = '';
 instructionEl.textContent = '';
 startButtonEl.textContent = '';
-quizAnswersEl.textContent = '';
+
 quizStarter();
 console.log(quizQuestions);
 console.log(quizAnswerChoices);
 console.log(quizAnswers);
 // startQuiz();
 // startTimer();
+
+quizContainerEl.textContent = quizQuestions[0];
+displayQuizEl.textContent = answerChoices[0];
+
+
+
+
+
 }
 
 function quizStarter() {
   var eachQuestion = [];
+  var eachAnswer = [];
 
-  for (var i=0; i < quizQuestions.length; i++) {
-    questions = quizQuestions.splice([i]);
-  }
 
 }
+  
 
 
 // function startQuiz(){
@@ -76,10 +84,10 @@ function quizStarter() {
 //         }
   
 //         // add this question and its answers to the output
-//         output.push(
-//           `<div class="question"> ${currentQuestion.question} </div>
-//           <div class="answers"> ${answers.join('')} </div>`
-//         );
+        // output.push(
+        //   `<div class="question"> ${currentQuestion.question} </div>
+        //   <div class="answers"> ${answers.join('')} </div>`
+        // );
 //         console.log(output);
 //       }
 //     );
