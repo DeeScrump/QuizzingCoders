@@ -5,6 +5,10 @@ var questionContainerEl = document.querySelector('#container');
 var quizQuestionEl = document.querySelector('#quiz-question');
 var quizChoicesEl = document.querySelector('#quiz-choices');
 var questionUl = document.querySelector('#question-container');
+var allDoneEl = document.querySelector('#all_done');
+var yourScoreEl = document.querySelector('#your_score');
+var savedTimeEl = document.querySelector('#savedTime');
+var timeCountDown = document.querySelector('#countDown');
 
 var quizChoices = [
   {
@@ -40,12 +44,13 @@ startButtonEl.textContent = '';
 quizStarter();
 // startTimer();
 }
-var timerCounter = 10;
+var timerCounter = 75;
 var counter   = 0;
+timeOnClock = 0;
  
 function quizStarter() {
   // quizChoices.forEach(function(currentQuestion) {
-   
+   startTimer()
     if(counter < quizChoices.length){
          
           var li = document.createElement('li'); //this is the li
@@ -81,23 +86,33 @@ function quizStarter() {
           }
         
     }else{
-      console.log("HERE")
+      allDone();
     } 
 }
 
-//The timer interval that countdowns and return to page for score and initials input
-// function startTimer () {
-//     countDown = setInterval(function() {
-//         timerCounter--;
-//         timeCountDown.textContent = timerCounter;
-//         if (timerCounter === 0) {
-//             clearInterval(countDown);
-//             window.open("initials.html","_self");
-//         } else if (timerCounter !==0) {
-//             console.log("wait");
-//         }
-//     }, 1000);
-// }
+function allDone() {
+  allDoneEl.innerHTML = "All done!";
+  yourScoreEl.innerHTML = "Your score is:" + timeOnClock + ".";
+  var input = document.createElement('input');
+  
+  
+}
+
+// The timer interval that countdowns
+function startTimer () {
+    countDown = setInterval(function() {
+        timerCounter--;
+        timeCountDown.textContent = timerCounter;
+        if (timerCounter === 0) {
+            clearInterval(countDown);
+            timeOnClock = timerCounter;
+            allDone();
+        } else if (timerCounter !==0) {
+            timeOnClock = timerCounter
+            allDone();
+        }
+    }, 1000);
+}
 
 
 startButtonEl.addEventListener('click', clearScreen)
