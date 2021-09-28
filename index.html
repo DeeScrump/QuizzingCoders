@@ -15,7 +15,7 @@
     <nav>
         <ul>
             <li>View HighScores</li>
-            <li>Time Left: <span id='countDown'>75</span> </li>
+            <li>Time Left: <span id='countDown'></span> </li>
         </ul>
     </nav>
 
@@ -37,9 +37,16 @@
 
     <main id="container">
             <ul id="question-container"></ul>
-
+        
+        <div id="displayInit" class="hide">
             <h2 id="all_done"></h2>
             <div id="your_score"><span id="savedTime"></span></div>
+            <div id="enterInit"><input id="inputInit" type="text"></div>
+            <button id="submitInit"></button>
+        </div>
+
+        <div id="rightWrong"></div>
+
     </main>
     
 <script src="./script.js"></script>

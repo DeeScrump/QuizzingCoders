@@ -1,3 +1,4 @@
+//DOM variables assigned
 var startButtonEl = document.querySelector('#start-button');
 var pageTitleEl = document.querySelector('#page-title');
 var instructionEl = document.querySelector('#instructions');
@@ -9,7 +10,11 @@ var allDoneEl = document.querySelector('#all_done');
 var yourScoreEl = document.querySelector('#your_score');
 var savedTimeEl = document.querySelector('#savedTime');
 var timeCountDown = document.querySelector('#countDown');
+var displayInitEl = document.querySelector('#displayInit');
+var inputInitEl = document.querySelector('#inputInit');
+var enterInitEl = document.querySelector('#enterInit');
 
+// List of questions and answer choices
 var quizChoices = [
   {
     "question": "Who invented JavaScript?",
@@ -36,18 +41,23 @@ var quizChoices = [
       "userAnswer": null
   }
 ];
+
+//variables for
+var timerCounter = quizChoices.length * 3;
+var counter   = 0;
+timeOnClock = 0;
+
+
+//Clear screen of content in main section and start quiz
 function clearScreen(event) {
-// event.preventDefault();
 pageTitleEl.textContent = '';
 instructionEl.textContent = '';
 startButtonEl.textContent = '';
+inputInitEl.setAttribute('class', 'hide');
 quizStarter();
-// startTimer();
 }
-var timerCounter = 75;
-var counter   = 0;
-timeOnClock = 0;
- 
+
+// Start quiz
 function quizStarter() {
   // quizChoices.forEach(function(currentQuestion) {
    startTimer()
@@ -91,10 +101,12 @@ function quizStarter() {
 }
 
 function allDone() {
+  displayInitEl.removeAttribute('class', 'hide');
+  questionContainerEl.innerHTML = '';
   allDoneEl.innerHTML = "All done!";
-  yourScoreEl.innerHTML = "Your score is:" + timeOnClock + ".";
-  var input = document.createElement('input');
-  
+  yourScoreEl.innerHTML = "Your score is:" + timerCounter + ".";
+  enterInitEl.innerHTML = "Enter your initials: ";
+  questionContainerEl.setAttribute('class', 'hide');
   
 }
 
@@ -103,16 +115,20 @@ function startTimer () {
     countDown = setInterval(function() {
         timerCounter--;
         timeCountDown.textContent = timerCounter;
-        if (timerCounter === 0) {
+
+        if (timerCounter <= 0) {
             clearInterval(countDown);
-            timeOnClock = timerCounter;
+            // timeOnClock = timerCounter;
             allDone();
-        } else if (timerCounter !==0) {
-            timeOnClock = timerCounter
-            allDone();
-        }
+        } 
     }, 1000);
 }
 
 
 startButtonEl.addEventListener('click', clearScreen)
+
+
+// else if (timerCounter !==0) {
+//   timeOnClock = timerCounter
+//   allDone();
+// }
