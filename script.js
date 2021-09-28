@@ -3,12 +3,9 @@ var startButtonEl = document.querySelector('#start-button');
 var pageTitleEl = document.querySelector('#page-title');
 var instructionEl = document.querySelector('#instructions');
 var questionContainerEl = document.querySelector('#container');
-var quizQuestionEl = document.querySelector('#quiz-question');
-var quizChoicesEl = document.querySelector('#quiz-choices');
 var questionUl = document.querySelector('#question-container');
 var allDoneEl = document.querySelector('#all_done');
 var yourScoreEl = document.querySelector('#your_score');
-var savedTimeEl = document.querySelector('#savedTime');
 var timeCountDown = document.querySelector('#countDown');
 var displayInitEl = document.querySelector('#displayInit');
 var inputInitEl = document.querySelector('#inputInit');
@@ -61,53 +58,62 @@ quizStarter();
 function quizStarter() {
   // quizChoices.forEach(function(currentQuestion) {
    startTimer()
-    if(counter < quizChoices.length){
-         
-          var li = document.createElement('li'); //this is the li
-          var h2 = document.createElement('h2');
-          h2.innerHTML = quizChoices[counter].question;
-          li.appendChild(h2);
-
-          var div = document.createElement('div')
-          var ul2 = document.createElement('ul');
-          // ul2.classList.add('button-container');
-          
-
-          for(var i in quizChoices[counter]){
-            var li2 = document.createElement('li')
-            var btn = document.createElement('button');
-            if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
-              btn.innerHTML = quizChoices[counter][i];
-
-              li2.appendChild(btn);
-              ul2.appendChild(li2);
-              div.appendChild(ul2);
-              li.appendChild(div);
-              questionUl.appendChild(li); 
-
-              li2.addEventListener('click',function(){
-                counter++;
-                console.log([i]);
-                
-                questionUl.innerHTML = '';
-                quizStarter();
-              })
-            }
-          }
-        
-    }else{
-      allDone();
-    } 
 }
 
+// Display the questions one at a time
+function displayQuestions() {
+
+    if(counter < quizChoices.length){
+        
+    var li = document.createElement('li'); //this is the li
+    var h2 = document.createElement('h2');
+    h2.innerHTML = quizChoices[counter].question;
+    li.appendChild(h2);
+
+    var div = document.createElement('div')
+    var ul2 = document.createElement('ul');
+    // ul2.classList.add('button-container');
+    
+
+    for(var i in quizChoices[counter]){
+      var li2 = document.createElement('li')
+      var btn = document.createElement('button');
+      if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
+        btn.innerHTML = quizChoices[counter][i];
+
+        li2.appendChild(btn);
+        ul2.appendChild(li2);
+        div.appendChild(ul2);
+        li.appendChild(div);
+        questionUl.appendChild(li); 
+
+        li2.addEventListener('click',function(){
+          counter++;
+          console.log([i]);
+          
+          questionUl.innerHTML = '';
+          quizStarter();
+        })
+      }
+    }
+      
+  }
+}
+
+// Check for the correct answers to update timer
+function checkAnswers(){
+  console.log('something');
+}
+
+// When done, got to initials page and stop timer for score
 function allDone() {
+  clearInterval(countDown);
   displayInitEl.removeAttribute('class', 'hide');
   questionContainerEl.innerHTML = '';
   allDoneEl.innerHTML = "All done!";
   yourScoreEl.innerHTML = "Your score is:" + timerCounter + ".";
   enterInitEl.innerHTML = "Enter your initials: ";
   questionContainerEl.setAttribute('class', 'hide');
-  
 }
 
 // The timer interval that countdowns
@@ -117,11 +123,17 @@ function startTimer () {
         timeCountDown.textContent = timerCounter;
 
         if (timerCounter <= 0) {
-            clearInterval(countDown);
+            // clearInterval(countDown);
             // timeOnClock = timerCounter;
             allDone();
         } 
     }, 1000);
+}
+
+// Got to highscore html when initials submitted
+function goToHighScore() {
+  var initials = inputInitEl.nodeValue;
+  console.log(initials);
 }
 
 
