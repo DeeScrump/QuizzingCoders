@@ -25,14 +25,14 @@ var quizChoices = [
       "correctAnswer": "c",
       "userAnswer": null
   },
-  // {
-  //   "question": "Which tool can you use to ensure code quality?",
-  //     "a": "Angular",
-  //     "b": "jQuery",
-  //     "c": "ESLint",
-  //     "correctAnswer": "c",
-  //     "userAnswer": null
-  // }
+  {
+    "question": "Which tool can you use to ensure code quality?",
+      "a": "Angular",
+      "b": "jQuery",
+      "c": "ESLint",
+      "correctAnswer": "c",
+      "userAnswer": null
+  }
 ];
 function clearScreen(event) {
 // event.preventDefault();
@@ -43,99 +43,48 @@ quizStarter();
 // startTimer();
 }
 
-// remove this line
-
-
 var counter   = 0;
  
 function quizStarter() {
   // quizChoices.forEach(function(currentQuestion) {
    
-    
     if(counter < quizChoices.length){
-          var div = document.createElement('div');
-          var ul = document.createElement('ul');
-          var li = document.createElement('li');
-
-          for(var in quizChoices[0]){
-            if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
-              li.
-            }
-          }
-          
-          var ul2 = document.createElement('ul');
-        
+         
+          var li = document.createElement('li'); //this is the li
           var h2 = document.createElement('h2');
           h2.innerHTML = quizChoices[counter].question;
-          var li = document.createElement('li');
-          var div = document.createElement('div');
-        
-          var a  = document.createElement('li');
-          a.innerHTML = quizChoices[counter].a;
-          var b  = document.createElement('li');
-          b.innerHTML = quizChoices[counter].b;
-          var c  = document.createElement('li');
-          c.innerHTML = quizChoices[counter].c;
-          var correctAnswer  = document.createElement('li');
-          
-    
-          
-          ul2.appendChild(a);
-          ul2.appendChild(b);
-          ul2.appendChild(c);
-           
-          div.appendChild(ul2)
-        
-          li.appendChild(h2)
-          li.appendChild(div)
-        
-          questionUl.appendChild(li);
-          // questionUl.appendChild(div)
-          // console.log("its the while loop")
+          li.appendChild(h2);
 
-      a.addEventListener('click',function(){
-        counter++;
-        questionUl.innerHTML = '';
-        quizStarter();
-      })
+          var div = document.createElement('div')
+          var ul2 = document.createElement('ul');
+          // ul2.classList.add('button-container');
+          
+
+          for(var i in quizChoices[counter]){
+            var li2 = document.createElement('li')
+            var btn = document.createElement('button');
+            if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
+              btn.innerHTML = quizChoices[counter][i];
+
+              li2.appendChild(btn);
+              ul2.appendChild(li2);
+              div.appendChild(ul2);
+              li.appendChild(div);
+              questionUl.appendChild(li); 
+
+              li2.addEventListener('click',function(){
+                counter++;
+                questionUl.innerHTML = '';
+                quizStarter();
+              })
+            }
+          }
+        
     }else{
       console.log("HERE")
     }
     
-
-
-  
-  // })
 }
 
-for(var i in quizChoices[0]){
-  if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
-    console.log(quizChoices[0][i])
-  }
-}
-
-
-// {
-//   "question": "Who invented JavaScript?",
-//     "a": "Douglas Crockford",
-//     "b": "Sheryl Sandberg",
-//     "c": "Brendan Eich",
-//     "correctAnswer": "c",
-//     "userAnswer": null
-// },
   
 startButtonEl.addEventListener('click', clearScreen)
-
-
-
-  //   var divEachQuestion = document.createElement('div');
-  //   var divEachResponse = document.createElement('li');
-
-  // for (var i = 0; i < quizQuestions.length; i++) {
-  //   divEachQuestion.innerText = quizAnswerChoices[{question}];
-  //   divEachResponse.innerText = answerChoices[i];;
-  //   divEachQuestion.classList.add('quiz-Container')
-  //   divEachResponse.classList.add('displayQnA');
-  //   quizContainerEl.append(divEachQuestion);
-  //   quizContainerEl.append(divEachResponse);
-  // }

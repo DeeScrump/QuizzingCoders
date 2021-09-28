@@ -35,17 +35,8 @@ main #quizTime {
 
 }
 
-.quiz-Container {
-    font: xx-large;
-    display: block;
-    padding-left: 30%;
-    padding-right: 30%;
-    text-align: start;
-}
 
-.displayQnA {
-    padding-left: 30%;
-    padding-right: 30%;
-    text-align: start;
-    margin-bottom: 20px;
+.button-container{
+    display: flex;
+    flex-direction: column;
 }
