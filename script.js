@@ -4,8 +4,6 @@ var instructionEl = document.querySelector('#instructions');
 var questionContainerEl = document.querySelector('#container');
 var quizQuestionEl = document.querySelector('#quiz-question');
 var quizChoicesEl = document.querySelector('#quiz-choices');
-
-
 var questionUl = document.querySelector('#question-container');
 
 var quizChoices = [
@@ -42,7 +40,7 @@ startButtonEl.textContent = '';
 quizStarter();
 // startTimer();
 }
-
+var timerCounter = 10;
 var counter   = 0;
  
 function quizStarter() {
@@ -74,6 +72,8 @@ function quizStarter() {
 
               li2.addEventListener('click',function(){
                 counter++;
+                console.log([i]);
+                
                 questionUl.innerHTML = '';
                 quizStarter();
               })
@@ -82,9 +82,22 @@ function quizStarter() {
         
     }else{
       console.log("HERE")
-    }
-    
+    } 
 }
 
-  
+//The timer interval that countdowns and return to page for score and initials input
+// function startTimer () {
+//     countDown = setInterval(function() {
+//         timerCounter--;
+//         timeCountDown.textContent = timerCounter;
+//         if (timerCounter === 0) {
+//             clearInterval(countDown);
+//             window.open("initials.html","_self");
+//         } else if (timerCounter !==0) {
+//             console.log("wait");
+//         }
+//     }, 1000);
+// }
+
+
 startButtonEl.addEventListener('click', clearScreen)
