@@ -1,32 +1,41 @@
 var startButtonEl = document.querySelector('#start-button');
-var pageTitleEl = document.querySelector('#pagetitle');
+var pageTitleEl = document.querySelector('#page-title');
 var instructionEl = document.querySelector('#instructions');
-var quizContainerEl = document.querySelector('#quiz-Container');
-var displayQuizEl = document.querySelector('#displayQnA');
-var resultsPageEl = document.querySelector('#resultsPage');
+var questionContainerEl = document.querySelector('#container');
+var quizQuestionEl = document.querySelector('#quiz-question');
+var quizChoicesEl = document.querySelector('#quiz-choices');
 
-var quizQuestions = ["Who invented JavaScript?","Which one of these is a JavaScript package manager?","Which tool can you use to ensure code quality?"];
-var quizAnswerChoices = [
+var quizChoices = [
   {
-    a: "Douglas Crockford",
-    b: "Sheryl Sandberg",
-    c: "Brendan Eich"
+    "question": "Who invented JavaScript?",
+      "a": "Douglas Crockford",
+      "b": "Sheryl Sandberg",
+      "c": "Brendan Eich",
+      "correctAnswer": "c",
+      "userAnswer": null
   },
   {
-    a: "Node.js",
-    b: "TypeScript",
-    c: "npm"
+    "question": "Which one of these is a JavaScript package manager?",
+      "a": "Node.js",
+      "b": "TypeScript",
+      "c": "npm",
+      "correctAnswer": "c",
+      "userAnswer": null
   },
-  {
-    a: "Angular",
-    b: "RequireJS",
-    c: "ESLint"
-  }
+  // {
+  //   "question": "Which tool can you use to ensure code quality?",
+  //     "a": "Angular",
+  //     "b": "jQuery",
+  //     "c": "ESLint",
+  //     "correctAnswer": "c",
+  //     "userAnswer": null
+  // }
 ];
-var quizAnswers = ["Brendan Eich","npm","ESLint"];
 var userScore = 0;
-var answerChoices = ["a: Douglas Crockford \nb: Sheryl Sandberg \nc: Brendan Eich", "Node.js \nb: TypeScript \nc: npm", "a: Angular \nb: RequireJS \nc: ESLint"];
 
+// var quizQuestions = ["Who invented JavaScript?","Which one of these is a JavaScript package manager?","Which tool can you use to ensure code quality?"];
+// var answerChoices = ["a: Douglas Crockford \nb: Sheryl Sandberg \nc: Brendan Eich", "a: Node.js \nb: TypeScript \nc: npm", "a: Angular \nb: RequireJS \nc: ESLint"];
+// var quizAnswers = ["c: Brendan Eich","c: npm","c: ESLint"];
 
 
 function clearScreen(event) {
@@ -34,66 +43,42 @@ function clearScreen(event) {
 pageTitleEl.textContent = '';
 instructionEl.textContent = '';
 startButtonEl.textContent = '';
-
 quizStarter();
-console.log(quizQuestions);
-console.log(quizAnswerChoices);
-console.log(quizAnswers);
-// startQuiz();
 // startTimer();
-
-quizContainerEl.textContent = quizQuestions[0];
-displayQuizEl.textContent = answerChoices[0];
-
-
-
-
-
 }
+
+
 
 function quizStarter() {
-  var eachQuestion = [];
-  var eachAnswer = [];
-
-
+  quizChoices.forEach(function(currentQuestion) {
+    var ul = document.createElement('li');
+    var ul2 = document.createElement('ul');
+    var li = document.createElement('li');
+    var h2 = document.createElement('h2');
+    var div = document.createElement('div');
+    
+    h2.innerHTML = currentQuestion.question
+    ul.appendChild(h2)
+    currentQuestion.forEach(function() {
+      
+    })
+    questionContainerEl.appendChild(ul);
+    console.log(currentQuestion.question);
+  })
 }
   
+startButtonEl.addEventListener('click', clearScreen)
 
 
-// function startQuiz(){
-//     // variable to store the HTML output
-//     var output = [];
 
-//     // for each question...
-//     quizQuestions.forEach(
-//       (currentQuestion, questionNumber) => {
-  
-//         // variable to store the list of possible answers
-//         var answers = [];
-  
-//         // and for each available answer...
-//         for(letter in currentQuestion.answers){
-  
-//           // ...add an HTML radio button
-//           answers.push(
-//             `<button>
-//               ${letter}: ${currentQuestion.answers[letter]}
-//             </button>`
-//           );
-//           console.log(answers);
-//         }
-  
-//         // add this question and its answers to the output
-        // output.push(
-        //   `<div class="question"> ${currentQuestion.question} </div>
-        //   <div class="answers"> ${answers.join('')} </div>`
-        // );
-//         console.log(output);
-//       }
-//     );
-  
-//     // finally combine our output list into one string of HTML and put it on the page
-//     quizTimeEl.innerHTML = output.join('');
-//   }
+  //   var divEachQuestion = document.createElement('div');
+  //   var divEachResponse = document.createElement('li');
 
-startButtonEl.addEventListener('click', clearScreen);
+  // for (var i = 0; i < quizQuestions.length; i++) {
+  //   divEachQuestion.innerText = quizAnswerChoices[{question}];
+  //   divEachResponse.innerText = answerChoices[i];;
+  //   divEachQuestion.classList.add('quiz-Container')
+  //   divEachResponse.classList.add('displayQnA');
+  //   quizContainerEl.append(divEachQuestion);
+  //   quizContainerEl.append(divEachResponse);
+  // }

@@ -2,16 +2,16 @@
     text-align: center;
 }
 
-ul {
+nav ul {
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-li {
+/* li {
     display: inline;
-}
+} */
 
 h1 {
     font-size: xx-large;
@@ -35,7 +35,7 @@ main #quizTime {
 
 }
 
-#quiz-Container {
+.quiz-Container {
     font: xx-large;
     display: block;
     padding-left: 30%;
@@ -43,7 +43,7 @@ main #quizTime {
     text-align: start;
 }
 
-#displayQnA {
+.displayQnA {
     padding-left: 30%;
     padding-right: 30%;
     text-align: start;
