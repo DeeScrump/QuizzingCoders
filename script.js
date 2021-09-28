@@ -5,6 +5,9 @@ var questionContainerEl = document.querySelector('#container');
 var quizQuestionEl = document.querySelector('#quiz-question');
 var quizChoicesEl = document.querySelector('#quiz-choices');
 
+
+var questionUl = document.querySelector('#question-container');
+
 var quizChoices = [
   {
     "question": "Who invented JavaScript?",
@@ -31,13 +34,6 @@ var quizChoices = [
   //     "userAnswer": null
   // }
 ];
-var userScore = 0;
-
-// var quizQuestions = ["Who invented JavaScript?","Which one of these is a JavaScript package manager?","Which tool can you use to ensure code quality?"];
-// var answerChoices = ["a: Douglas Crockford \nb: Sheryl Sandberg \nc: Brendan Eich", "a: Node.js \nb: TypeScript \nc: npm", "a: Angular \nb: RequireJS \nc: ESLint"];
-// var quizAnswers = ["c: Brendan Eich","c: npm","c: ESLint"];
-
-
 function clearScreen(event) {
 // event.preventDefault();
 pageTitleEl.textContent = '';
@@ -47,24 +43,53 @@ quizStarter();
 // startTimer();
 }
 
+// remove this line
 
 
+var counter   = 0;
+ 
 function quizStarter() {
-  quizChoices.forEach(function(currentQuestion) {
-    var ul = document.createElement('li');
-    var ul2 = document.createElement('ul');
-    var li = document.createElement('li');
-    var h2 = document.createElement('h2');
-    var div = document.createElement('div');
+  // quizChoices.forEach(function(currentQuestion) {
+   
+    // while(counter < quizChoices.length){
+      var ul2 = document.createElement('ul');
+      // var li = document.createElement('li');
+      var h2 = document.createElement('h2');
+      h2.innerHTML = quizChoices[counter].question;
+      var li = document.createElement('li');
+      var div = document.createElement('div');
     
-    h2.innerHTML = currentQuestion.question
-    ul.appendChild(h2)
-    currentQuestion.forEach(function() {
-      
-    })
-    questionContainerEl.appendChild(ul);
-    console.log(currentQuestion.question);
-  })
+      var a  = document.createElement('li');
+      a.innerHTML = quizChoices[counter].a;
+      var b  = document.createElement('li');
+      b.innerHTML = quizChoices[counter].b;
+      var c  = document.createElement('li');
+      c.innerHTML = quizChoices[counter].c;
+      var correctAnswer  = document.createElement('li');
+      // correctAnswer.innerHTML = currentQuestion.correctAnswer;
+    
+      a.addEventListener('click',function(){
+        if(counter < quizChoices.length){
+          
+        }
+      })
+    
+      ul2.appendChild(a);
+      ul2.appendChild(b);
+      ul2.appendChild(c);
+      // ul2.appendChild(correctAnswer); 
+      div.appendChild(ul2)
+    
+      li.appendChild(h2)
+      li.appendChild(div)
+    
+      questionUl.appendChild(li);
+      // questionUl.appendChild(div);
+      // console.log("its the while loop")
+    // }
+
+  
+  // })
 }
   
 startButtonEl.addEventListener('click', clearScreen)
