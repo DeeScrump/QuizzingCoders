@@ -108,9 +108,9 @@ function displayQuestions() {
   }
 }
 
-// // Check for the correct answers to update timer
+// Check for the correct answers to update timer
 // function checkAnswers(){
-//   console.log('something');
+//   if (value !== )
 // }
 
 // // When done, got to initials page and stop timer for score
@@ -149,9 +149,3 @@ function startTimer () {
 
 
 startButtonEl.addEventListener('click', clearScreen);
-
-
-// // else if (timerCounter !==0) {
-// //   timeOnClock = timerCounter
-// //   allDone();
-// // }

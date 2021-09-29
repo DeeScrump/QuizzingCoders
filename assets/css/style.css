@@ -35,6 +35,14 @@ p {
     text-align: center;
 }
 
+button {
+    background-color:skyblue;
+}
+
+button:hover {
+    border-color: tan;
+}
+
 main #quizTime {
     text-align: left;
     color: blue;
