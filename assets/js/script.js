@@ -36,25 +36,25 @@ var quizChoices = [
       "a": "Martina Navratilova",
       "b": "Margaret Court",
       "c": "Steffi Graff",
-      "d": "Roger Federer";
+      "d": "Roger Federer",
       "correctAnswer": "a",
       "userAnswer": null
   },
   {
-  "question": "How many majors are there in a calendar year?",
-  "a": "6",
-  "b": "2",
-  "c": "4",
-  "d": "5";
-  "correctAnswer": "c",
-  "userAnswer": null
+    "question": "How many majors are there in a calendar year?",
+    "a": "6",
+    "b": "2",
+    "c": "4",
+    "d": "5",
+    "correctAnswer": "c",
+    "userAnswer": null
   },
   {
     "question": "Which major is played on grass surface?",
     "a": "Australian Open",
     "b": "French Open",
     "c": "Wimbledon Championships",
-    "d": "U.S. Open";
+    "d": "U.S. Open",
     "correctAnswer": "c",
     "userAnswer": null
   }
@@ -71,7 +71,6 @@ function clearScreen(event) {
   pageTitleEl.textContent = '';
   instructionEl.textContent = '';
   startButtonEl.textContent = '';
-  inputInitEl.setAttribute('class', 'hide');
   quizStarter();
   // quizStarter();
   }
@@ -131,15 +130,13 @@ function displayQuestions() {
 
 // Check for the correct answers to update timer
 // function checkAnswers(){
-//   if (value !== )
 // }
 
 // // When done, got to initials page and stop timer for score
 function allDone() {
   clearInterval(countDown);
-  // questionContainerEl.setAttribute('class', 'hide');
     yourScoreEl.innerHTML = timerCounter;
-    displayInitEl.removeAttribute('class', 'hide');
+    displayInitEl.removeAttribute('class','hide');
   // questionContainerEl.innerHTML = '';
   // allDoneEl.innerHTML = "All done!";
 
