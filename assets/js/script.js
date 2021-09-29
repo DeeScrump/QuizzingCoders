@@ -14,28 +14,49 @@ var enterInitEl = document.querySelector('#enterInit');
 // List of questions and answer choices
 var quizChoices = [
   {
-    "question": "Who invented JavaScript?",
-      "a": "Douglas Crockford",
-      "b": "Sheryl Sandberg",
-      "c": "Brendan Eich",
-      "correctAnswer": "c",
+    "question": "Who is the only person ever to win a Golden Calendar Slam?",
+      "a": "Margaret Court",
+      "b": "Novak Djokovic",
+      "c": "Serena Williams",
+      "d": "Steffi Graff",
+      "correctAnswer": "d",
       "userAnswer": null
   },
   {
-    "question": "Which one of these is a JavaScript package manager?",
-      "a": "Node.js",
-      "b": "TypeScript",
-      "c": "npm",
-      "correctAnswer": "c",
+    "question": "Which female players has held all 4 majors consecutively, twice?",
+      "a": "Serena Williams",
+      "b": "Venus Williams",
+      "c": "Naomi Osaka",
+      "d": "Coco Gauff",
+      "correctAnswer": "a",
       "userAnswer": null
   },
   {
-    "question": "Which tool can you use to ensure code quality?",
-      "a": "Angular",
-      "b": "jQuery",
-      "c": "ESLint",
-      "correctAnswer": "c",
+    "question": "Which player has the most Major titles total including doubles?",
+      "a": "Martina Navratilova",
+      "b": "Margaret Court",
+      "c": "Steffi Graff",
+      "d": "Roger Federer";
+      "correctAnswer": "a",
       "userAnswer": null
+  },
+  {
+  "question": "How many majors are there in a calendar year?",
+  "a": "6",
+  "b": "2",
+  "c": "4",
+  "d": "5";
+  "correctAnswer": "c",
+  "userAnswer": null
+  },
+  {
+    "question": "Which major is played on grass surface?",
+    "a": "Australian Open",
+    "b": "French Open",
+    "c": "Wimbledon Championships",
+    "d": "U.S. Open";
+    "correctAnswer": "c",
+    "userAnswer": null
   }
 ];
 
