@@ -45,22 +45,26 @@ var counter   = 0;
 timeOnClock = 0;
 
 
-//Clear screen of content in main section and start quiz
+// //Clear screen of content in main section and start quiz
 function clearScreen(event) {
-pageTitleEl.textContent = '';
-instructionEl.textContent = '';
-startButtonEl.textContent = '';
-inputInitEl.setAttribute('class', 'hide');
-quizStarter();
-}
+  pageTitleEl.textContent = '';
+  instructionEl.textContent = '';
+  startButtonEl.textContent = '';
+  inputInitEl.setAttribute('class', 'hide');
+  quizStarter();
+  // quizStarter();
+  }
 
 // Start quiz
 function quizStarter() {
-  // quizChoices.forEach(function(currentQuestion) {
-   startTimer()
+  // Start timer
+  startTimer();
+
+  //pull up question
+  displayQuestions();
 }
 
-// Display the questions one at a time
+// // Display the questions one at a time
 function displayQuestions() {
 
     if(counter < quizChoices.length){
@@ -89,10 +93,14 @@ function displayQuestions() {
 
         li2.addEventListener('click',function(){
           counter++;
-          console.log([i]);
-          
+         
           questionUl.innerHTML = '';
-          quizStarter();
+
+          if (counter == quizChoices.length){
+            allDone();
+          } else {
+            displayQuestions();
+          }
         })
       }
     }
@@ -100,29 +108,32 @@ function displayQuestions() {
   }
 }
 
-// Check for the correct answers to update timer
-function checkAnswers(){
-  console.log('something');
-}
+// // Check for the correct answers to update timer
+// function checkAnswers(){
+//   console.log('something');
+// }
 
-// When done, got to initials page and stop timer for score
+// // When done, got to initials page and stop timer for score
 function allDone() {
   clearInterval(countDown);
-  displayInitEl.removeAttribute('class', 'hide');
-  questionContainerEl.innerHTML = '';
-  allDoneEl.innerHTML = "All done!";
-  yourScoreEl.innerHTML = "Your score is:" + timerCounter + ".";
-  enterInitEl.innerHTML = "Enter your initials: ";
-  questionContainerEl.setAttribute('class', 'hide');
+  // questionContainerEl.setAttribute('class', 'hide');
+    yourScoreEl.innerHTML = timerCounter;
+    displayInitEl.removeAttribute('class', 'hide');
+  // questionContainerEl.innerHTML = '';
+  // allDoneEl.innerHTML = "All done!";
+
+  // enterInitEl.innerHTML = "Enter your initials: ";
+
 }
 
-// The timer interval that countdowns
+
+// // The timer interval that countdowns
 function startTimer () {
     countDown = setInterval(function() {
         timerCounter--;
         timeCountDown.textContent = timerCounter;
 
-        if (timerCounter <= 0) {
+        if (timerCounter == 0) {
             // clearInterval(countDown);
             // timeOnClock = timerCounter;
             allDone();
@@ -130,17 +141,17 @@ function startTimer () {
     }, 1000);
 }
 
-// Got to highscore html when initials submitted
-function goToHighScore() {
-  var initials = inputInitEl.nodeValue;
-  console.log(initials);
-}
-
-
-startButtonEl.addEventListener('click', clearScreen)
-
-
-// else if (timerCounter !==0) {
-//   timeOnClock = timerCounter
-//   allDone();
+// // Got to highscore html when initials submitted
+// function goToHighScore() {
+//   var initials = inputInitEl.nodeValue;
+//   console.log(initials);
 // }
+
+
+startButtonEl.addEventListener('click', clearScreen);
+
+
+// // else if (timerCounter !==0) {
+// //   timeOnClock = timerCounter
+// //   allDone();
+// // }
