@@ -100,18 +100,13 @@ function displayQuestions() {
     // var h2 = document.createElement('h2');
     // h2.innerHTML = keys[0];
     // li.appendChild(h2);
-    
-    
-    
-    
-    var j = 1;
-    var x =  0;
+
     for(var i in quizChoices[counter]){
 
       // console.log(quizChoices[0][i]);
       // if(i != 'question' && i != 'correctAnswer' && i != 'userAnswer'){
         keys.push(i)
-        val.push(quizChoices[0][i]);
+        val.push(quizChoices[counter][i]);
         
       // }
    
@@ -180,17 +175,19 @@ function displayQuestions() {
 
         btn.addEventListener('click',function(){
           if(keys[i] === val[5]){
-            
-            correct.innerHTML = "correct"
-            // hide(correct)
+            correct.innerHTML = 'correct';
+            setTimeout(() => {
+              correct.innerHTML = '';
+            }, 500);
           }else{
             correct.innerHTML = "Incorrect"
-            // hide(correct)
             timerCounter -= 5;
+            setTimeout(() => {
+              correct.innerHTML = '';
+            }, 500);
             
-            if (timerCounter < 0){
-              timerCounter =\
-               0;
+            if (timerCounter <= 0){
+              timerCounter = countDown;
             }
           } 
 
@@ -203,15 +200,17 @@ function displayQuestions() {
     
   }
 }
- var hide = function(params) {
-   var i  = 1;
-   setInterval(() => {
-     params.style.display = (params.style.display =='none'? '':'none');
-     if(1++ ==2){
 
-     }
-   }, 500);
- }
+//function to quickly display and hide either correct or incorrect
+// var hide = function(params) {
+//   var i  = 1;
+//   setInterval(() => {
+//     params.style.display = (params.style.display =='none'? '':'none');
+//     if(1++ ==2){
+
+//     }
+//   }, 500);
+// }
 
 
 // Check for the correct answers to update timer
@@ -220,6 +219,7 @@ function displayQuestions() {
 // }
 
 // // When done, got to initials page and stop timer for score
+
 function allDone() {
   clearInterval(countDown);
     yourScoreEl.innerHTML = timerCounter;
