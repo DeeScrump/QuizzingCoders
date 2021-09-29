@@ -189,7 +189,8 @@ function displayQuestions() {
             timerCounter -= 5;
             
             if (timerCounter < 0){
-              timerCounter = 0;
+              timerCounter =\
+               0;
             }
           } 
 
