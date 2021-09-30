@@ -1,3 +1,5 @@
+
+
 function displayHighScores() {
     var playerScores = JSON.parse(window.localStorage.getItem('input_score')) || [];
 
@@ -7,8 +9,24 @@ function displayHighScores() {
         return b.score -a.score;
     });
 
-    for (var i = 0; i < playerScores.length; i++) {
+    playerScores.forEach(function(score) {
          var li = document.createElement('li');
-         li.innerHTML = score.initials;
-    }
+         li.innerHTML = score.initials + " - " + score.score;         
+        
+        var olScore = document.getElementById('input_score');
+         olScore.append(li)        
+    });
 }
+
+var clearScoresBtn = document.querySelector('#clearScores');
+
+function clearScores () {
+    window.localStorage.removeItem('input_score');
+    window.location.reload();
+}
+
+
+clearScoresBtn.addEventListener('click', clearScores);
+
+displayHighScores();
+

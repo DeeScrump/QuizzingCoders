@@ -10,6 +10,7 @@ var timeCountDown = document.querySelector('#countDown');
 var displayInitEl = document.querySelector('#displayInit');
 var inputInitEl = document.querySelector('#inputInit');
 var enterInitEl = document.querySelector('#enterInit');
+var submitInitBtn = document.querySelector('#submitInit');
 
 // testing
 var questionContainer = document.querySelector('#questions');
@@ -66,7 +67,7 @@ var quizChoices = [
 ];
 
 //variables for
-var timerCounter = quizChoices.length * 25;
+var timerCounter = quizChoices.length * 1;
 var counter   = 0;
 timeOnClock = 0;
 
@@ -176,11 +177,32 @@ function allDone() {
 
 
 
-// // Got to highscore html when initials submitted
-// function goToHighScore() {
-//   var initials = inputInitEl.nodeValue;
-//   console.log(initials);
-// }
+// Input initials for score and submit
+function goToHighScores() {
+  var inputInitials = inputInitEl.value;
+  console.log(inputInitials);
+
+  if(inputInitials !== '') {
+    var currentScore = JSON.parse(window.localStorage.getItem('input_score')) || [];
+
+    var latestScore = {
+      score: timerCounter,
+      initials: inputInitials
+    };
+    console.log(latestScore);
+  } else {
+    window.alert('Please enter valid initials');
+    return;
+  }
+
+  currentScore.push(latestScore);
+  window.localStorage.setItem('input_score', JSON.stringify(currentScore));
+
+  window.location.href = 'highscores.html';
+}
 
 
 startButtonEl.addEventListener('click', clearScreen);
+
+submitInitBtn.addEventListener('click', goToHighScores);
+// clearScorebtn.onclick = goToHighScores;
