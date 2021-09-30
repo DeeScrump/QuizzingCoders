@@ -11,12 +11,11 @@ var displayInitEl = document.querySelector('#displayInit');
 var inputInitEl = document.querySelector('#inputInit');
 var enterInitEl = document.querySelector('#enterInit');
 var submitInitBtn = document.querySelector('#submitInit');
-
-// testing
 var questionContainer = document.querySelector('#questions');
 var question = document.querySelector('#question-title');
 var choices = document.querySelector('#choices');
 var correct = document.querySelector('#rightWrong');
+
 // List of questions and answer choices
 var quizChoices = [
   {
@@ -66,8 +65,8 @@ var quizChoices = [
   }
 ];
 
-//variables for
-var timerCounter = quizChoices.length * 1;
+//variables needed with pre-stored values for counting
+var timerCounter = quizChoices.length * 15;
 var counter   = 0;
 timeOnClock = 0;
 
@@ -174,9 +173,6 @@ function allDone() {
   displayInitEl.removeAttribute('class','hide');
 }
 
-
-
-
 // Input initials for score and submit
 function goToHighScores() {
   var inputInitials = inputInitEl.value;
@@ -205,4 +201,3 @@ function goToHighScores() {
 startButtonEl.addEventListener('click', clearScreen);
 
 submitInitBtn.addEventListener('click', goToHighScores);
-// clearScorebtn.onclick = goToHighScores;

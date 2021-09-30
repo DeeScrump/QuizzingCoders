@@ -15,7 +15,7 @@ Second Attempt at creating a site for quizzing coders with timer
 6. User should find that once initials are submitted, they will be directed to the highscore page where they can view their initials in order of highest score. They will find buttons to go back or clear the high scores.
 
 ## Screenshot of final landing page
-![The Landing Page for the Quiz](./)
+![The Landing Page for the Quiz](./assets/images/screenshot.png)
 
 ### URL and Github Pages: 
 1. Repository:      
