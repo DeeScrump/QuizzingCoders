@@ -66,8 +66,8 @@ var quizChoices = [
 ];
 
 //variables for
-var timerCounter = quizChoices.length * 3;
-var counter   = 2;
+var timerCounter = quizChoices.length * 25;
+var counter   = 0;
 timeOnClock = 0;
 
 
@@ -85,6 +85,21 @@ function quizStarter() {
   displayQuestions();
 }
 
+// // The timer interval that countdowns
+function startTimer () {
+  countDown = setInterval(function() {
+      timerCounter--;
+      timeCountDown.textContent = timerCounter;
+
+      if (timerCounter <= 0) {
+          // clearInterval(countDown);
+          // timeOnClock = timerCounter;
+          questionContainer.innerHTML = '';
+          allDone();
+      } 
+  }, 1000);
+}
+
 // Display the questions one at a time
 function displayQuestions() {
     var keys = [];
@@ -98,6 +113,7 @@ function displayQuestions() {
         // console.log(quizChoices[counter][i]);
     }
 
+    // for each iteration, choose the answer choices on both sides of question array and append to page
     var j  = 1;
     question.innerHTML =  quizChoices[counter].question;
     val.forEach(function(item,i) {
@@ -110,34 +126,38 @@ function displayQuestions() {
         choices.appendChild(p)
         j++;
 
+        // With each button click, check for accuracy, save timer number for scoring including penalties
         btn.addEventListener('click', function() {
-          if(keys[i] === val[5]){
+          if(keys[i] === val[5]) {
             correct.innerHTML = 'correct';
             setTimeout(() => {
               correct.innerHTML = '';
-            }, 500);
-          }else{
+              }, 500);
+            } else {
             correct.innerHTML = "Incorrect"
             timerCounter -= 5;
             setTimeout(() => {
               correct.innerHTML = '';
             }, 500);
-            
-            if (timerCounter <= 0){
-              timerCounter = countDown;
-            }
-          }
 
-          if (counter == quizChoices.length) {
-            timerCounter = countDown;
+            if (timerCounter <= 0){
+              timerCounter = 0;
+              timeCountDown.innerHTML = 0;
+              questionContainer.innerHTML = '';
+              allDone();
+            }
+          }  
+
+          if (counter == quizChoices.length-1) {
+            clearInterval(countDown);
+            yourScoreEl.innerHTML = timerCounter;
             allDone();
           } else {
             counter++;
-            // question.innerHTML = '';
-            // choices.innerHTML = '';
-            // displayQuestions();
+            question.innerHTML = '';
+            choices.innerHTML = '';
+            displayQuestions();
           }
-
         });
       }
     })
@@ -147,28 +167,14 @@ function displayQuestions() {
 // When done, got to initials page and stop timer for score
 function allDone() {
   clearInterval(countDown);
-    yourScoreEl.innerHTML = timerCounter;
-    displayInitEl.removeAttribute('class','hide');
-  // questionContainerEl.innerHTML = '';
-  // allDoneEl.innerHTML = "All done!";
-  // enterInitEl.innerHTML = "Enter your initials: ";
+  question.innerHTML = '';
+  choices.innerHTML = '';
+  yourScoreEl.innerHTML = timerCounter;
+  displayInitEl.removeAttribute('class','hide');
 }
 
 
-// // The timer interval that countdowns
-function startTimer () {
-    countDown = setInterval(function() {
-        timerCounter--;
-        timeCountDown.textContent = timerCounter;
 
-        if (timerCounter <= 0) {
-            // clearInterval(countDown);
-            // timeOnClock = timerCounter;
-            questionContainer.innerHTML = '';
-            allDone();
-        } 
-    }, 1000);
-}
 
 // // Got to highscore html when initials submitted
 // function goToHighScore() {
