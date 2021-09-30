@@ -18,6 +18,6 @@ Second Attempt at creating a site for quizzing coders with timer
 ![The Landing Page for the Quiz](./assets/images/screenshot.png)
 
 ### URL and Github Pages: 
-1. Repository:      
+1. Repository:    https://github.com/DeeScrump/QuizzingCoders.git  
 
-2. Live Website:    
+2. Live Website:  https://deescrump.github.io/QuizzingCoders/  
